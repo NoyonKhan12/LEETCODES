@@ -21,7 +21,6 @@ public:
         return false;
     }
     
-public:
     vector<string> findAllConcatenatedWordsInADict(vector<string>& words)
     {
         sort(words.begin(), words.end(), [](const string &lhs, const string &rhs){return lhs.size() < rhs.size();});
