@@ -20,20 +20,20 @@ public:
         {
             for(int ind=1; ind<freqSize; ind++)
             {
-                freq[ind] += freq[ind - 1];
+                freq[ind] += freq[ind-1];
             }
         }
         else
         {
             for(int ind=freqSize-2; ind>=0; ind--)
             {
-                freq[ind] += freq[ind + 1];
+                freq[ind] += freq[ind+1];
             }
         }
        
         for(int ind=size-1; ind>=0; ind--)
         {
-            sorted[freq[nums[ind] - minVal]-- - 1] = nums[ind];
+            sorted[freq[nums[ind]-minVal]-- - 1] = nums[ind];
         }
 
         return sorted;
