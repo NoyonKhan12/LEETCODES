@@ -6,7 +6,9 @@ public:
         int maxVal = *max_element(nums.begin(), nums.end());
         
         bool isAscending = true;
-        int freqSize = maxVal - minVal + 1 + 1, size = nums.size();
+        int freqSize = maxVal - minVal + 1 + 1; 
+        int size = nums.size();
+        
         vector<int> freq(freqSize, 0), sorted(size, 0);
         
         for(int ind=0; ind<size; ind++)
@@ -33,7 +35,7 @@ public:
         {
             sorted[freq[nums[ind] - minVal]-- - 1] = nums[ind];
         }
-        nums = sorted;
-        return nums;
+
+        return sorted;
     }
 };
