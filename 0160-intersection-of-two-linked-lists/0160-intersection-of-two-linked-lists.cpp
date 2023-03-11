@@ -21,7 +21,7 @@ public:
 			}
 			else
             {
-				ptr1 = ptr1 -> next;
+				ptr1 = ptr1->next;
 			}
 			if(ptr2 == NULL)
             {
@@ -29,7 +29,7 @@ public:
 			}
 			else
             {
-				ptr2 = ptr2 -> next;
+				ptr2 = ptr2->next;
 			}
 		}
 		return ptr1;        
