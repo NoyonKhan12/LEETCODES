@@ -28,7 +28,7 @@ public:
     
     string forward(int steps) 
     {
-        while(steps>0 && future.size()>0)
+        while(steps>0 && future.size() > 0)
         {
             history.push(future.top());
             future.pop();
