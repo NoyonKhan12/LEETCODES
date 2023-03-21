@@ -10,7 +10,7 @@ public:
             {
                 j = i + 1;
             }
-             res += i - j + 1;
+             res = res + i - j + 1;
         }
         return res;
     }
