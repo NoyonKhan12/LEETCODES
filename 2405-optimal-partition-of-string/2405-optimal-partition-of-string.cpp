@@ -8,7 +8,6 @@ public:
         while(i < s.size())
         {
             int val = s[i] - 'a';
-            cout<<val;
             
             if(flag & (1 << val)) 
             {
