@@ -1,7 +1,7 @@
 class Solution {
 public:
     int dp[102][102][102];
-    int mod=1e9+7;
+    int mod = 1e9 + 7;
     
     int solve(int i, int currPeople, int currProfit, int totalP, int minProfit, vector<int>& group, vector<int>& profit)
     {
