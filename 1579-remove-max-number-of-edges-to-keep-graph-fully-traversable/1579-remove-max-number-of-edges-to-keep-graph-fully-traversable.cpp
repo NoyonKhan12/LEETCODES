@@ -9,6 +9,7 @@ public:
     {
         vector<int> ds_both(n+1, -1);
         int used = 0;
+        
         for(int type=3; type>0; --type) 
         {
             auto ds_one = ds_both;
@@ -18,7 +19,9 @@ public:
             {
                 if(e[0] == type) 
                 {
-                    int i = find(ds, e[1]), j = find(ds, e[2]);
+                    int i = find(ds, e[1]);
+                    int j = find(ds, e[2]);
+                    
                     if(i != j) 
                     {
                         ++used;
