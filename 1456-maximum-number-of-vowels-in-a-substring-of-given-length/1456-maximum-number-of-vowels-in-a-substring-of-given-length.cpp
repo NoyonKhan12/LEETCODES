@@ -10,7 +10,6 @@ public:
 
         for(int i=0; i < s.length(); i++) 
         {           
-            
             if(i >= k && vowels[s[i-k]-'a']) 
             {
                 count--;
