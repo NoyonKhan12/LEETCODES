@@ -2,15 +2,36 @@ class Solution {
 public:
     vector<int> longestObstacleCourseAtEachPosition(vector<int>& obstacles) 
     {
-        vector<int> v(obstacles.size()+1, INT_MAX);
-        vector<int> ans;
-
-        for(auto it : obstacles)   
+        int n = obstacles.size();
+        vector<int> longestObstacleCourse(n), lis(n);
+        int lisLength = 0;
+        
+        for(int i=0; i<n; i++) 
         {
-            int index = upper_bound(v.begin(), v.end(), it) - v.begin();
-            v[index] = it;
-            ans.push_back(index+1);
+            int left = 0, right = lisLength;
+            while(left < right) 
+            {
+                int middle = (left + right) >> 1;
+                if(lis[middle] <= obstacles[i]) 
+                {
+                    left = middle + 1;
+                }
+                else 
+                {
+                    right = middle;
+                }
+            }
+            
+            if(left >= lisLength || lis[left] > obstacles[i]) 
+            {
+                lis[left] = obstacles[i];
+            }
+            if(left == lisLength) 
+            {
+                lisLength++;
+            }
+            longestObstacleCourse[i] = left + 1;
         }
-        return ans; 
+        return longestObstacleCourse;
     }
 };
