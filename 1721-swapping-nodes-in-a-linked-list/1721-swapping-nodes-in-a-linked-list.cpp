@@ -11,39 +11,40 @@
 class Solution {
 public:
     
-    // int length(ListNode* head)
-    // {
-    //     int count = 0 ;
-    //     while(head != nullptr)
-    //     {
-    //         head = head->next;
-    //         count++;
-    //     }
-    //     return count;
-    // }
+    int length(ListNode* head)
+    {
+        int count = 0 ;
+        while(head != nullptr)
+        {
+            head = head->next;
+            count++;
+        }
+        return count;
+    }
     
     ListNode* swapNodes(ListNode* head, int k) 
     {
-        ListNode* first = head;
-        ListNode* second = head;
-        ListNode* curr = head;
+        ListNode* n1 = head;
+        ListNode* n2 = head;
 
-        // Traverse the linked list until the kth node from the beginning
-        for (int i = 1; i < k; i++) {
-            curr = curr->next;
+        int n = length(head);
+        int i = 1 ;
+
+        while(i < k)
+        {
+            n1 = n1->next;
+            i++;
         }
-        first = curr;
-
-        // Traverse the linked list from the kth node until the end
-        while (curr->next != NULL) {
-            curr = curr->next;
-            second = second->next;
+        
+        i = 1;
+        
+        while(i <= n-k)
+        {
+            n2 = n2->next;
+            i++;
         }
-
-        // Swap the values of the two nodes
-        int temp = first->val;
-        first->val = second->val;
-        second->val = temp;
+        
+        swap(n1->val, n2->val);
 
         return head;
     }
