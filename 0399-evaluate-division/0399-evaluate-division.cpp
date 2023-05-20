@@ -53,12 +53,13 @@ public:
             graph[u].push_back(v);
             graph[v].push_back(u);
         }
+        
         for(int i=0; i<queries.size(); i++)
         {
             string s = queries[i][0];
             string e = queries[i][1];
 
-            if(graph.find(s) == graph.end()|| graph.find(e) == graph.end())
+            if(graph.find(s) == graph.end() || graph.find(e) == graph.end())
             {
                 ans.push_back(-1);
             }
