@@ -1,97 +1,49 @@
 class Solution {
 public:
-    queue<pair<pair<int, int>, int>> q;
-    bool isValid(int i, int j, vector<vector<int>>& grid, vector<vector<bool>> &vis)
-    {
-        if(i < 0 || j < 0 || i >= grid.size() || j >= grid.size() || vis[i][j] || grid[i][j] == 0)
-        {
-            return false;
-        }
-        return true;
-    }    
-    
-    void countIsland(int i, int j, vector<vector<int>>& grid, vector<vector<bool>> &vis)
-    {
-        if(!isValid(i, j, grid, vis))
-        {
-            return;
-        }
-        
-        vis[i][j] = true;
-        
-        grid[i][j] = 0;
-        
-        q.push({{i, j}, 0});
-        
-        int dx[] = {0, 1, 0, -1};
-        int dy[] = {1, 0, -1, 0};
-        
-        for(int k=0; k<4; ++k)
-        {
-            int ni = i + dx[k];
-            int nj = j + dy[k];
-            
-            if(isValid(ni, nj, grid, vis))
-            {
-                countIsland(ni, nj, grid, vis);
+    void dfs(int row, int col, vector<vector<int>>&grid, vector<vector<int>>&vis, vector<pair<int,int>>&vp, int dx[], int dy[]){
+        int m = grid.size();
+        int n = grid[0].size();
+        vis[row][col] = 1;
+        for(int i = 0; i<4; i++){
+            int nrow = row + dx[i];
+            int ncol = col + dy[i];
+            if(nrow>=0 && nrow<m && ncol>=0 && ncol<n && !grid[nrow][ncol])
+                vp.push_back({row,col});
+            else if(nrow>=0 && nrow<m && ncol>=0 && ncol<n && !vis[nrow][ncol] && grid[nrow][ncol]){
+                dfs(nrow, ncol, grid, vis, vp, dx, dy);
             }
         }
-        return;
     }
-
-    int shortestBridge(vector<vector<int>>& grid) 
-    {
-        bool flag = false;
-        vector<vector<bool>> vis(grid.size(), vector<bool>(grid.size(), false));
-        
-        for(int i=0; i<grid.size(); i++)
-        {
-            for(int j=0; j<grid.size(); j++)
-            {
-                if(grid[i][j] == 1 && !vis[i][j])
-                {
-                    countIsland(i, j, grid, vis);
-                    flag = true;
-                    break;
-                }       
-            }
-            if(flag)
-            {
-                break;
+    
+    int shortestBridge(vector<vector<int>>& grid) {
+        int m = grid.size();
+        int n = grid[0].size();
+        int dx[] = {0,0,1,-1};
+        int dy[] = {1,-1,0,0};
+        vector<vector<int>>vis(m,vector<int>(n,0));
+        vector<pair<int,int>>vp1;
+        vector<pair<int,int>>vp2;
+        int c = 0;
+        for(int i = 0; i<m; i++){
+            for(int j = 0; j<n; j++){
+                if(!vis[i][j] && grid[i][j] && !c){
+                    c = 1;
+                    dfs(i, j, grid, vis, vp1, dx, dy);
+                }
+                else if(!vis[i][j] && grid[i][j] && c)
+                    dfs(i, j, grid, vis, vp2, dx, dy);
             }
         }
+
         
-        int dx[] = {0, 1, 0, -1};
-        int dy[] = {1, 0, -1, 0};
-        
-        while(!q.empty())
-        { 
-            int x = q.front().first.first;
-            int y = q.front().first.second;
-            int dis = q.front().second;
-            q.pop();
 
-            for(int k=0; k<4; ++k)
-            {
-                int nx = x + dx[k];
-                int ny = y + dy[k];
-
-                if(nx < 0 || nx >= grid.size() || ny < 0 || ny >= grid.size() || vis[nx][ny]) 
-                {
-                    continue;
-                }
-
-                if(grid[nx][ny] == 1) 
-                {
-                    return dis;
-                }
-                else 
-                {
-                    vis[nx][ny] = true;
-                    q.push({{nx, ny}, dis+1});
-                }
+        int mini = 1e9;
+        for(auto it1: vp1){
+            for(auto it2: vp2){
+                int x = abs(it1.first-it2.first)+abs(it1.second-it2.second)-1;
+                mini = min(mini,x);
             }
         }
-        return -1;
+        return mini;
     }
 };
