@@ -26,8 +26,10 @@ public:
                 {
                     int x1 = bombs[i][0], y1 = bombs[i][1], r1 = bombs[i][2];
                     int x2 = bombs[j][0], y2 = bombs[j][1], r2 = bombs[j][2];
+                    
                     long long x_2 = (long long)(abs(x1-x2)) * (long long)(abs(x1-x2));
                     long long y_2 = (long long)(abs(y1-y2)) * (long long)(abs(y1-y2));
+                    
                     long long dist_2 = x_2 + y_2;
                     long long radii = (long long)(r1) * (long long)(r1);
                     
@@ -40,6 +42,7 @@ public:
         }
         vector<int> vis(n+1);
         int maxi = 0;
+        
         for(int i=1; i<=n; i++)
         {
             if(!vis[i])
