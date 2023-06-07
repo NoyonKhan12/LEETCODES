@@ -3,6 +3,7 @@ public:
     int minFlips(int a, int b, int c) 
     {
         int flips = 0;
+        
         while(c > 0 || a > 0 || b > 0)
         {
             if(c % 2 == 1)
