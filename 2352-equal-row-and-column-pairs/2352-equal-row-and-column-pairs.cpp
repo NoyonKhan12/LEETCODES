@@ -10,7 +10,7 @@ public:
         
         for(auto row:grid)
         {
-            mp[row] += 1;
+            mp[row]++;
         }
         
         for(int i=0; i<row; i++) 
