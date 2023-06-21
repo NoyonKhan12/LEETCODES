@@ -29,7 +29,7 @@ public:
     {
         long long ans = 0;
         
-        for(int i=0; i<nums.size(); ++i)
+        for(int i=0; i<nums.size(); i++)
         {
             ans += 1L * abs(nums[i] - x) * cost[i];
         }
