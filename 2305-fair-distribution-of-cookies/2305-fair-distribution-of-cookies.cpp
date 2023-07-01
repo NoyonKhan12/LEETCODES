@@ -27,7 +27,6 @@ public:
     
     int distributeCookies(vector<int>& nums, int k) 
     { 
-        int n = nums.size();
         vector<int> v(k, 0);
         
         unfairness(0, nums, v, k);
