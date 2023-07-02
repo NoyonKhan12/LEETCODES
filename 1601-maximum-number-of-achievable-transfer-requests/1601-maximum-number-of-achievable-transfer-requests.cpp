@@ -30,7 +30,7 @@ public:
                 }
             }
             
-            if(f)
+            if(f == true)
             {
                 mx = max(mx, t);
             }
