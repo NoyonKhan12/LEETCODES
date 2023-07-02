@@ -2,13 +2,14 @@ class Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board) 
     {
+        int n = board.size();
         int used1[9][9] = {0};
         int used2[9][9] = {0};
         int used3[9][9] = {0};
         
-        for(int i=0; i<board.size(); i++)
+        for(int i=0; i<n; i++)
         {
-            for(int j=0; j<board[i].size(); j++)
+            for(int j=0; j<n; j++)
             {
                 if(board[i][j] != '.')
                 {
