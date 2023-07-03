@@ -3,8 +3,10 @@ public:
     bool buddyStrings(string s, string goal) 
     {
         vector<int> v;
+        int n = s.size();
+        int m = goal.size();
 
-        if(s.size() != goal.size() || s.size() <= 1)
+        if(n != m || n <= 1)
         {
             return false;
         }
@@ -12,10 +14,10 @@ public:
         if(s == goal) 
         {
             unordered_set<char> diff(s.begin(), s.end());
-            return diff.size() < s.size();
+            return diff.size() < n;
         }
 
-        for(int i=0; i<s.size(); i++) 
+        for(int i=0; i<n; i++) 
         {
             if(s[i] != goal[i]) 
             {
