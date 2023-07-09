@@ -16,7 +16,7 @@ public:
                 int lowFreq = 0;
                 bool lowFreqAbandoned = false;
 
-                for(const char& ch : s) 
+                for(auto ch : s) 
                 {
                     if(ch == highFreqChar) 
                     {
