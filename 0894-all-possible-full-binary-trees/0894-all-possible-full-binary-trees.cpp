@@ -11,16 +11,16 @@
  */
 class Solution {
 public:
-    vector<TreeNode *> generateFBTs(int n) 
+    vector<TreeNode*> generateFBTs(int n) 
     {
 		if(n == 1) 
         {
             return {new TreeNode(0)};
         }
-		vector<TreeNode *> trees;
+		vector<TreeNode*> trees;
 		n--; 
 		
-		vector<TreeNode *> leftChoices, rightChoices;
+		vector<TreeNode*> leftChoices, rightChoices;
         
 		for(int i=1; i<n; i+=2) 
         {
@@ -41,7 +41,7 @@ public:
 		return trees;
 	}
     
-	vector<TreeNode *> allPossibleFBT(int n) 
+	vector<TreeNode*> allPossibleFBT(int n) 
     {
 		if(n == 1) 
         {
