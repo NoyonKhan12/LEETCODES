@@ -10,6 +10,7 @@ public:
             {
                 int end = start + len;
                 dp[start][end] = len + 1;
+                
                 for(int k=start+1; k<=end; k++)
                 {
                     int steps = dp[start][k-1] + dp[k][end] - (s[k-1] == s[end] ? 1 : 0);
