@@ -3,10 +3,10 @@ public:
     bool isSubsequence(string s, string t) 
     {
         int x = 0;
-        int n = s.size();
-        int m = t.size();
+        int m = s.size();
+        int n = t.size();
         
-        for(int i=0; i<m; i++)
+        for(int i=0; i<n; i++)
         {
             if(s[x] == t[i])
             {
@@ -14,6 +14,6 @@ public:
             }
         }
         
-        return x == n;
+        return x == m;
     }
 };
