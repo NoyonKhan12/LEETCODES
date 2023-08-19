@@ -102,6 +102,7 @@ public:
                     }
                 }
             }
+            
             if(newMSTwt > mstWt || ds.size[ds.findUPar(0)] < n) 
             {
                 criticalEdges.push_back(edgeIndex);
