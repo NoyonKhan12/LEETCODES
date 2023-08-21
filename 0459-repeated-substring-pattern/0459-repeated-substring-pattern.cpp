@@ -1,6 +1,7 @@
 class Solution {
 public:
-    bool repeatedSubstringPattern(string s) {
-        return (s+s).substr(1, s.size()*2-2).find(s) != -1;
+    bool repeatedSubstringPattern(string str) 
+    {
+        return (str + str).find(str, 1) < str.size();
     }
 };
