@@ -2,7 +2,6 @@ class Solution {
 public:
     string convertToTitle(int n) 
     {
-        int res = 0;
         string str = "";
         
         while(n != 0)
@@ -13,6 +12,5 @@ public:
             n = n / 26;
         }
         return str;
-        
     }
 };
