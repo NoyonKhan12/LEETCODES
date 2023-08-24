@@ -35,31 +35,38 @@ public:
                     }
                 }
             }
+            
             if(end != w.size() - 1)
             {
                 int extra = 0;
                 int spc = 0;
+                
                 if(space)
                 {
                     spc = (check - word_length) / space;
                     extra = (check - word_length) % space;
                 }
+                
                 for(int j=i; j<=end; j++)
                 {
                     s += w[j];
+                    
                     for(int k=0; k<spc && j != end; k++)
                     {
                         s += " ";
                     }
+                    
                     if(extra)
                     {
                         extra--;
                         s += " ";
                     }
                 }
+                
                 if(space == 0)
                 {
                     int k = s.size();
+                    
                     for(int j=1; j<=(check - k); j++)
                     {
                         s += " ";
@@ -81,6 +88,7 @@ public:
                     }
                 }
                 int k = s.size();
+                
                 for(int j=1; j<=(check - k); j++)
                 {
                     s += " ";
