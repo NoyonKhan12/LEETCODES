@@ -11,7 +11,7 @@ public:
             return a[0] < b[0];
         });
 
-        for(auto & p : pairs)
+        for(auto p : pairs)
         {
             if(last == INT_MIN || last < p[0])
             {
