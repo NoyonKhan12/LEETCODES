@@ -3,7 +3,7 @@ public:
     vector<int> sortJumbled(vector<int>& mapping, vector<int>& nums)
     {
         vector<int> res;
-        multimap<long long, int> mp;
+        multimap<int, int> mp;
         
         for(auto i:nums)
         {
@@ -25,7 +25,7 @@ public:
                 }
             }
            
-            long long z = stoll(str);
+            int z = stoi(str);
             mp.insert({z, i});
         }
         
