@@ -17,11 +17,11 @@ public:
     {
         if(!root) return;
         
+        dfs(root->left, low, high);
         if(root->val >= low && root->val <= high)
         {
             sum = sum + root->val;
         }
-        dfs(root->left, low, high);
         dfs(root->right, low, high);
     }
     
